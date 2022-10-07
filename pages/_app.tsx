@@ -1,8 +1,17 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
+import Header from '../src/components/header/Header'
+import { ThemeProvider } from '@mui/material'
+import theme from '../src/themes/theme'
+
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <ThemeProvider theme={theme}>
+      <Header />
+      <Component {...pageProps} />
+    </ThemeProvider>
+  )
 }
 
 export default MyApp
